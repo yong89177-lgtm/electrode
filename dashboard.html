@@ -82,13 +82,16 @@
   .cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
   @media (max-width:900px){.cat-grid{grid-template-columns:repeat(2,1fr)}}
   @media (max-width:520px){.cat-grid{grid-template-columns:1fr}}
-  .cat-card{border-radius:var(--radius);padding:24px 22px;color:#fff;min-height:150px;display:flex;
-    flex-direction:column;justify-content:space-between;cursor:pointer;box-shadow:var(--shadow);
-    transition:transform .15s}
+  .cat-card{border-radius:var(--radius);padding:22px 22px 20px;color:#fff;min-height:210px;display:flex;
+    flex-direction:column;cursor:pointer;box-shadow:var(--shadow);transition:transform .15s}
   .cat-card:hover{transform:translateY(-3px)}
-  .cat-card .cat-en{font-size:11px;font-weight:800;letter-spacing:.08em;opacity:.85;text-transform:uppercase}
-  .cat-card .cat-kr{font-size:19px;font-weight:800;margin-top:6px}
-  .cat-card .cat-count{font-size:12.5px;opacity:.9;margin-top:14px}
+  .cat-card .cat-ico{font-size:22px;line-height:1}
+  .cat-card .cat-en{font-size:11px;font-weight:800;letter-spacing:.08em;opacity:.85;text-transform:uppercase;margin-top:10px}
+  .cat-card .cat-kr{font-size:19px;font-weight:800;margin-top:5px}
+  .cat-card .cat-desc{font-size:12.5px;line-height:1.5;opacity:.92;margin-top:8px;flex:1}
+  .cat-card .cat-top{font-size:11.5px;opacity:.85;margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.25)}
+  .cat-card .cat-top b{font-weight:700}
+  .cat-card .cat-count{font-size:12.5px;opacity:.9;margin-top:6px}
 
   .agent-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
   @media (max-width:900px){.agent-grid{grid-template-columns:repeat(2,1fr)}}
@@ -210,15 +213,19 @@
 
 <script>
 const CATS = [
-  { id:'auto',   en:'Work Automation', kr:'업무자동화', color:'var(--cat-1)' },
-  { id:'admin',  en:'Admin Support',   kr:'행정지원',   color:'var(--cat-2)' },
-  { id:'collab', en:'Collab Hub',      kr:'협업허브',   color:'var(--cat-3)' },
-  { id:'growth', en:'Skill-up',        kr:'역량강화',   color:'var(--cat-4)' },
+  { id:'auto',   en:'Work Automation', kr:'업무자동화', ico:'⚙️', color:'var(--cat-1)',
+    desc:'반복적인 실무를 Agent가 대신 처리해 시간을 아껴줍니다.' },
+  { id:'admin',  en:'Admin Support',   kr:'행정지원',   ico:'📋', color:'var(--cat-2)',
+    desc:'문서·규정·이관 절차 등 행정 업무 처리를 지원합니다.' },
+  { id:'collab', en:'Collab Hub',      kr:'협업허브',   ico:'🤝', color:'var(--cat-3)',
+    desc:'조직·법인 간 데이터와 이슈를 모아 공유하는 창구입니다.' },
+  { id:'growth', en:'Skill-up',        kr:'역량강화',   ico:'📈', color:'var(--cat-4)',
+    desc:'새로운 기술·지식을 학습하고 습득하도록 돕습니다.' },
 ];
 
 const AGENTS = [
   { name:'공정 조건 최적화 Agent', desc:'실험 데이터 기반 최적 조건 탐색', org:'전극기술그룹', cat:'auto', likes:34 },
-  { name:'신규 공법 리스크 스캐너', desc:'문헌·특허 기반 신공법 리스크 사전 점검', org:'공정기술그룹', cat:'growth', likes:21 },
+  { name:'신규 공법 리스크 스캐너', desc:'문헌·특허 기반 신공법 리스크 사전 점검', org:'공정기술그룹', cat:'growth', likes:27 },
   { name:'설비 파라미터 추천 Agent', desc:'가동 이력에서 최적 설비 세팅값 추천', org:'생산기술그룹', cat:'auto', likes:17 },
   { name:'해외법인 수율 모니터링', desc:'법인별 수율 추이·이상 구간 알림', org:'Pack기술그룹', cat:'collab', likes:41 },
   { name:'현지 이슈 원인분석 Agent', desc:'불량 발생 구간 역추적·원인 후보 제시', org:'원통형기술그룹', cat:'collab', likes:38 },
@@ -254,10 +261,15 @@ function renderTop5(list){
 
 function renderCatGrid(){
   document.getElementById('catGrid').innerHTML = CATS.map(c=>{
-    const count = AGENTS.filter(a=>a.cat===c.id).length;
+    const inCat = AGENTS.filter(a=>a.cat===c.id);
+    const top = [...inCat].sort((a,b)=>b.likes-a.likes)[0];
     return `<div class="cat-card" style="background:${c.color}" data-cat="${c.id}">
-      <div><div class="cat-en">${c.en}</div><div class="cat-kr">${c.kr}</div></div>
-      <div class="cat-count">Agent ${count}개</div>
+      <div class="cat-ico">${c.ico}</div>
+      <div class="cat-en">${c.en}</div>
+      <div class="cat-kr">${c.kr}</div>
+      <div class="cat-desc">${c.desc}</div>
+      ${top ? `<div class="cat-top">인기 Agent · <b>${top.name}</b></div>` : ''}
+      <div class="cat-count">Agent ${inCat.length}개</div>
     </div>`;
   }).join('');
   document.querySelectorAll('.cat-card').forEach(el=>{
