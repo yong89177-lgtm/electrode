@@ -210,24 +210,24 @@
 
 <script>
 const CATS = [
-  { id:'process',  en:'New Process',  kr:'新 공정/공법 개발', color:'var(--cat-1)' },
-  { id:'plant',    en:'Global Plant', kr:'해외법인 양산 지원', color:'var(--cat-2)' },
-  { id:'product',  en:'Product Dev',  kr:'제품 개발 대응',    color:'var(--cat-3)' },
-  { id:'ops',      en:'Operations',   kr:'공통 및 루틴 업무',  color:'var(--cat-4)' },
+  { id:'auto',   en:'Work Automation', kr:'업무자동화', color:'var(--cat-1)' },
+  { id:'admin',  en:'Admin Support',   kr:'행정지원',   color:'var(--cat-2)' },
+  { id:'collab', en:'Collab Hub',      kr:'협업허브',   color:'var(--cat-3)' },
+  { id:'growth', en:'Skill-up',        kr:'역량강화',   color:'var(--cat-4)' },
 ];
 
 const AGENTS = [
-  { name:'공정 조건 최적화 Agent', desc:'실험 데이터 기반 최적 조건 탐색', org:'전극기술그룹', cat:'process', likes:34 },
-  { name:'신규 공법 리스크 스캐너', desc:'문헌·특허 기반 신공법 리스크 사전 점검', org:'공정기술그룹', cat:'process', likes:21 },
-  { name:'설비 파라미터 추천 Agent', desc:'가동 이력에서 최적 설비 세팅값 추천', org:'생산기술그룹', cat:'process', likes:17 },
-  { name:'해외법인 수율 모니터링', desc:'법인별 수율 추이·이상 구간 알림', org:'Pack기술그룹', cat:'plant', likes:41 },
-  { name:'현지 이슈 원인분석 Agent', desc:'불량 발생 구간 역추적·원인 후보 제시', org:'원통형기술그룹', cat:'plant', likes:38 },
-  { name:'양산 이관 체크리스트 Agent', desc:'신규 라인 이관 전 점검 항목 자동 생성', org:'해외생산그룹', cat:'plant', likes:14 },
-  { name:'보고서 초안 생성 Agent', desc:'데이터에서 주간·월간 보고 초안 작성', org:'인프라그룹', cat:'ops', likes:36 },
-  { name:'회의록 자동 정리', desc:'회의 녹취에서 결정사항과 액션아이템 추출', org:'인프라그룹', cat:'ops', likes:23 },
-  { name:'사내 규정 Q&A Agent', desc:'사내 규정·매뉴얼 기반 즉답형 챗봇', org:'경영지원그룹', cat:'ops', likes:12 },
-  { name:'제품 스펙 비교 Agent', desc:'경쟁 제품 스펙 자동 수집·비교표 생성', org:'제품기획그룹', cat:'product', likes:19 },
-  { name:'고객 VOC 요약 Agent', desc:'고객 피드백을 카테고리별로 자동 요약', org:'품질기획그룹', cat:'product', likes:16 },
+  { name:'공정 조건 최적화 Agent', desc:'실험 데이터 기반 최적 조건 탐색', org:'전극기술그룹', cat:'auto', likes:34 },
+  { name:'신규 공법 리스크 스캐너', desc:'문헌·특허 기반 신공법 리스크 사전 점검', org:'공정기술그룹', cat:'growth', likes:21 },
+  { name:'설비 파라미터 추천 Agent', desc:'가동 이력에서 최적 설비 세팅값 추천', org:'생산기술그룹', cat:'auto', likes:17 },
+  { name:'해외법인 수율 모니터링', desc:'법인별 수율 추이·이상 구간 알림', org:'Pack기술그룹', cat:'collab', likes:41 },
+  { name:'현지 이슈 원인분석 Agent', desc:'불량 발생 구간 역추적·원인 후보 제시', org:'원통형기술그룹', cat:'collab', likes:38 },
+  { name:'양산 이관 체크리스트 Agent', desc:'신규 라인 이관 전 점검 항목 자동 생성', org:'해외생산그룹', cat:'admin', likes:14 },
+  { name:'보고서 초안 생성 Agent', desc:'데이터에서 주간·월간 보고 초안 작성', org:'인프라그룹', cat:'admin', likes:36 },
+  { name:'회의록 자동 정리', desc:'회의 녹취에서 결정사항과 액션아이템 추출', org:'인프라그룹', cat:'auto', likes:23 },
+  { name:'사내 규정 Q&A Agent', desc:'사내 규정·매뉴얼 기반 즉답형 챗봇', org:'경영지원그룹', cat:'admin', likes:12 },
+  { name:'제품 스펙 비교 Agent', desc:'경쟁 제품 스펙 자동 수집·비교표 생성', org:'제품기획그룹', cat:'growth', likes:19 },
+  { name:'고객 VOC 요약 Agent', desc:'고객 피드백을 카테고리별로 자동 요약', org:'품질기획그룹', cat:'collab', likes:16 },
 ];
 
 const COMMENTS = [
