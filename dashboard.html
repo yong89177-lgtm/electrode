@@ -224,23 +224,23 @@ const CATS = [
 ];
 
 const AGENTS = [
-  { name:'공정 조건 최적화 Agent', desc:'실험 데이터 기반 최적 조건 탐색', org:'전극기술그룹', cat:'auto', likes:34 },
-  { name:'신규 공법 리스크 스캐너', desc:'문헌·특허 기반 신공법 리스크 사전 점검', org:'공정기술그룹', cat:'growth', likes:27 },
-  { name:'설비 파라미터 추천 Agent', desc:'가동 이력에서 최적 설비 세팅값 추천', org:'생산기술그룹', cat:'auto', likes:17 },
-  { name:'해외법인 수율 모니터링', desc:'법인별 수율 추이·이상 구간 알림', org:'Pack기술그룹', cat:'collab', likes:41 },
-  { name:'현지 이슈 원인분석 Agent', desc:'불량 발생 구간 역추적·원인 후보 제시', org:'원통형기술그룹', cat:'collab', likes:38 },
-  { name:'양산 이관 체크리스트 Agent', desc:'신규 라인 이관 전 점검 항목 자동 생성', org:'해외생산그룹', cat:'admin', likes:14 },
-  { name:'보고서 초안 생성 Agent', desc:'데이터에서 주간·월간 보고 초안 작성', org:'인프라그룹', cat:'admin', likes:36 },
-  { name:'회의록 자동 정리', desc:'회의 녹취에서 결정사항과 액션아이템 추출', org:'인프라그룹', cat:'auto', likes:23 },
-  { name:'사내 규정 Q&A Agent', desc:'사내 규정·매뉴얼 기반 즉답형 챗봇', org:'경영지원그룹', cat:'admin', likes:12 },
-  { name:'제품 스펙 비교 Agent', desc:'경쟁 제품 스펙 자동 수집·비교표 생성', org:'제품기획그룹', cat:'growth', likes:19 },
-  { name:'고객 VOC 요약 Agent', desc:'고객 피드백을 카테고리별로 자동 요약', org:'품질기획그룹', cat:'collab', likes:16 },
+  { name:'공정 조건 최적화 Agent', desc:'실험 데이터 기반 최적 조건 탐색', org:'공정기술팀', cat:'auto', likes:34 },
+  { name:'신규 공법 리스크 스캐너', desc:'문헌·특허 기반 신공법 리스크 사전 점검', org:'선행기술팀', cat:'growth', likes:27 },
+  { name:'설비 파라미터 추천 Agent', desc:'가동 이력에서 최적 설비 세팅값 추천', org:'설비기술팀', cat:'auto', likes:17 },
+  { name:'해외법인 수율 모니터링', desc:'법인별 수율 추이·이상 구간 알림', org:'검사기술팀', cat:'collab', likes:41 },
+  { name:'현지 이슈 원인분석 Agent', desc:'불량 발생 구간 역추적·원인 후보 제시', org:'DFM기술팀', cat:'collab', likes:38 },
+  { name:'양산 이관 체크리스트 Agent', desc:'신규 라인 이관 전 점검 항목 자동 생성', org:'제품기술팀', cat:'admin', likes:14 },
+  { name:'보고서 초안 생성 Agent', desc:'데이터에서 주간·월간 보고 초안 작성', org:'기획팀', cat:'admin', likes:36 },
+  { name:'회의록 자동 정리', desc:'회의 녹취에서 결정사항과 액션아이템 추출', org:'기획팀', cat:'auto', likes:23 },
+  { name:'사내 규정 Q&A Agent', desc:'사내 규정·매뉴얼 기반 즉답형 챗봇', org:'기획팀', cat:'admin', likes:12 },
+  { name:'제품 스펙 비교 Agent', desc:'경쟁 제품 스펙 자동 수집·비교표 생성', org:'제품기술팀', cat:'growth', likes:19 },
+  { name:'고객 VOC 요약 Agent', desc:'고객 피드백을 카테고리별로 자동 요약', org:'검사기술팀', cat:'collab', likes:16 },
 ];
 
 const COMMENTS = [
-  { name:'박지훈', tag:'전극기술그룹', time:'6시간 전', body:'공정 조건 최적화 Agent 덕분에 실험 리포트 정리 시간이 절반으로 줄었어요.', likes:12 },
-  { name:'이서연', tag:'인프라그룹', time:'1일 전', body:'회의록 자동 정리 Agent, 액션 아이템까지 뽑아줘서 팀 공유가 훨씬 빨라졌습니다.', likes:19 },
-  { name:'김도현', tag:'Pack기술그룹', time:'2일 전', body:'해외법인 수율 모니터링 대시보드 반응속도가 빨라서 매일 아침 확인하고 있어요.', likes:9 },
+  { name:'박지훈', tag:'공정기술팀', time:'6시간 전', body:'공정 조건 최적화 Agent 덕분에 실험 리포트 정리 시간이 절반으로 줄었어요.', likes:12 },
+  { name:'이서연', tag:'기획팀', time:'1일 전', body:'회의록 자동 정리 Agent, 액션 아이템까지 뽑아줘서 팀 공유가 훨씬 빨라졌습니다.', likes:19 },
+  { name:'김도현', tag:'검사기술팀', time:'2일 전', body:'해외법인 수율 모니터링 대시보드 반응속도가 빨라서 매일 아침 확인하고 있어요.', likes:9 },
 ];
 
 const catById = Object.fromEntries(CATS.map(c=>[c.id,c]));
