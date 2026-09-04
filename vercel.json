@@ -1,0 +1,10 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/api/render" },
+    { "source": "/index.html", "destination": "/api/render" },
+    { "source": "/data/dashboards.json", "destination": "/api/dashboards-data" }
+  ],
+  "functions": {
+    "api/[...slug].js": { "includeFiles": "deploy/index.html" }
+  }
+}

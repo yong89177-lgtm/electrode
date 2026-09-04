@@ -1,0 +1,15 @@
+{
+  "name": "maps-portal",
+  "version": "1.0.0",
+  "private": true,
+  "description": "MAPS - 생산기술혁신센터 AI 플랫폼 백엔드 (Vercel 배포 또는 사내망 독립 실행형 서버 둘 다 지원)",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node standalone.js"
+  },
+  "dependencies": {
+    "@vercel/blob": "^0.27.1"
+  }
+}
