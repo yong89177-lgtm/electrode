@@ -1,0 +1,25 @@
+const { readBody, methodNotAllowed } = require("./_lib/http");
+const { getSession, verifyPw } = require("./_lib/auth");
+const { update } = require("./_lib/blob");
+
+module.exports = async (req, res) => {
+  if (req.method !== "POST") return methodNotAllowed(res);
+  const me = await getSession(req);
+  const isAdmin = me && me.role === "admin";
+  const { id, text, tag, pw } = await readBody(req);
+  const t = String(text || "").trim();
+  if (!t) return res.status(400).json({ ok: false, error: "내용을 입력하세요." });
+
+  let errorOut = null;
+  await update("lounge", { items: [] }, (cur) => {
+    const p = (cur.items || []).find((x) => x.id === id);
+    if (!p) { errorOut = "글을 찾을 수 없습니다."; return cur; }
+    if (!isAdmin && !verifyPw(pw, p.pw)) { errorOut = "비밀번호가 일치하지 않습니다."; return cur; }
+    p.text = t;
+    if (tag) p.tag = tag;
+    p.edited = true;
+    return cur;
+  });
+  if (errorOut) return res.status(400).json({ ok: false, error: errorOut });
+  res.status(200).json({ ok: true });
+};
